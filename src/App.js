@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import BeatLoader from './Component/BeatLoader';
 import ClipLoader from './Component/ClipLoader';
+import PulseLoader from './Component/PulseLoader';
 
 function App() {
   return (
@@ -13,12 +14,15 @@ function App() {
           loading = {true}
           size = {15}
           color = "#b064d1"
-          margin = "2"
+          margin = {4}
         />
         <ClipLoader
           loading = {true}
           size = {20}
           color = "#b064d1"
+        />
+        <PulseLoader
+          loading = {true}
         />
         <p>
           Edit <code>src/App.js</code> and save to reload.

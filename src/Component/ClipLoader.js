@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled, {keyframes} from "styled-components"
+import {color,size,border} from "./DefaultValue"
 
 ClipLoader.prototype = {
     loading : PropTypes.bool.isRequired,
@@ -27,11 +28,11 @@ function ClipLoader(props){
     const Loader = styled.div`
         display : inline-block;
         background : transparent !important;
-        width : ${props.size || 15}px;
-        height : ${props.size || 15}px;
+        width : ${props.size || size}px;
+        height : ${props.size || size}px;
         border-radius : 100%;
-        border : ${props.border || 4}px solid;
-        border-color : ${props.color};
+        border : ${props.border || border}px solid;
+        border-color : ${props.color || color};
         border-bottom-color: transparent;
         animation-name : ${circle};
         animation-duration : 0.7s;
