@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BeatLoader from './Component/BeatLoader';
+import ClipLoader from './Component/ClipLoader';
 
 function App() {
   return (
@@ -13,6 +14,11 @@ function App() {
           size = {15}
           color = "#b064d1"
           margin = "2"
+        />
+        <ClipLoader
+          loading = {true}
+          size = {20}
+          color = "#b064d1"
         />
         <p>
           Edit <code>src/App.js</code> and save to reload.

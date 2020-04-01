@@ -2,50 +2,48 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled, {keyframes} from "styled-components"
 
-BeatLoader.prototype = {
+ClipLoader.prototype = {
     loading : PropTypes.bool.isRequired,
     color : PropTypes.string,
     size : PropTypes.number,
-    margin : PropTypes.number
+    border : PropTypes.number
 }
 
-function BeatLoader(props) {
-
+function ClipLoader(props){
     const circle = keyframes`
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+
         50% {
-            transform: scale(0.75);
-            opacity: 0.2;
+            transform: rotate(180deg) scale(0.8);
         }
         
         100% {
-            transform: scale(1);
-            opacity: 1;
+            transform: rotate(360deg) scale(1);
         }
     `
 
     const Loader = styled.div`
         display : inline-block;
-        background-color : ${props.color};
+        background : transparent !important;
         width : ${props.size || 15}px;
         height : ${props.size || 15}px;
-        margin : ${props.margin || 10}px;
         border-radius : 100%;
+        border : ${props.border || 4}px solid;
+        border-color : ${props.color};
+        border-bottom-color: transparent;
         animation-name : ${circle};
         animation-duration : 0.7s;
         animation-timing-function: linear;
-        animation-delay: ${props => props.index % 2 ? "0s" : "0.35s"};
+        animation-delay: 0s;
         animation-fill-mode: both;
         animation-iteration-count: infinite;
     `
-
     return(
         props.loading ?
-        <div>
-            <Loader index={1}/>
-            <Loader index={2}/>
-            <Loader index={3}/>
-        </div>
+            <Loader/>
         : null
     )
 }
-export default BeatLoader
+export default ClipLoader
