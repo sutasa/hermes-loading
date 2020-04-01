@@ -7,7 +7,9 @@ BeatLoader2.prototype = {
     loading : PropTypes.bool.isRequired,
     color : PropTypes.string,
     size : PropTypes.number,
-    margin : PropTypes.number
+    margin : PropTypes.number,
+    widthShadow : PropTypes.number,
+    heightShadow : PropTypes.number
 }
 
 function BeatLoader2(props) {
@@ -71,8 +73,8 @@ function BeatLoader2(props) {
         display : inline-block;
         position: absolute;
         background-color : rgba(0,0,0,.5);
-        width : ${props.width || width}px;
-        height : ${props.height || height}px;
+        width : ${props.widthShadow || width}px;
+        height : ${props.heightShadow || height}px;
         border-radius : 50%;
         top:62px;
         transform-origin: 50%;
