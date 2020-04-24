@@ -46,15 +46,6 @@ function App() {
                 <BarLoader
                     loading = {true}
                 />
-                 <BarLoader
-                    loading = {true}
-                />
-                 <BarLoader
-                    loading = {true}
-                />
-                 <BarLoader
-                    loading = {true}
-                />
             </div>
             
         </header>

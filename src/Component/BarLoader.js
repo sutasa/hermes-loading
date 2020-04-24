@@ -1,14 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled, {keyframes} from "styled-components"
-import {width1,height1,width2,height2} from "./DefaultValue"
+import {width1,height1,width2,height2,numBarLoader} from "./DefaultValue"
 
 BarLoader.prototype = {
     loading : PropTypes.bool.isRequired,
     width1 : PropTypes.number,
     height1 : PropTypes.number,
     width2 : PropTypes.number,
-    height2 : PropTypes.number
+    height2 : PropTypes.number,
+    numBarLoader : PropTypes.number
 }
 
 function BarLoader(props) {
@@ -70,23 +71,26 @@ function BarLoader(props) {
         text-alert:left;
         margin-top:0.5rem;
     `
-    const Container = styled.div`
-
-    `
-    return(
-        props.loading ?
-        <Container>
-            <Load>
+    const numBar = props.numBarLoader || numBarLoader;
+    const barLoade = []
+    for(let i=0; i < numBar; i++){
+        barLoade.push(
+            <Load index={i}>
                 <Loader1>
-                    <LoaderBar1 index={1}/>
+                    <LoaderBar1/>
                 </Loader1>
                 <Loader2>
-                    <LoaderBar2 index={1}/>
+                    <LoaderBar2/>
                 </Loader2>
                 <Bottom/>
             </Load>
-        </Container>
-        : null
+        )
+    }
+    return(
+        props.loading ?
+        barLoade
+        :null
     )
+
 }
 export default BarLoader
